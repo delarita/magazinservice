@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show]
 
   def index
     @service = Service.all
@@ -6,14 +7,19 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
+    authorize @service
   end
 
   def show
     @service = Service.find_by(name: params[:name])
+    authorize @service
   end
 
   def create
+
     @service = Service.new(service_params)
+    @service.user = current_user
+    authorize @service
     if @service.save
       create_file(@service.name)
       redirect_to services_path, notice: 'Le service a été enregistré.'
@@ -24,6 +30,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service = Service.find(params[:id])
+    authorize @service
     @service.destroy
 
     delete_file(@service.name)
@@ -40,7 +47,9 @@ class ServicesController < ApplicationController
 <div>
   <p>Des choses sur #{file}</p>
   <p><%= @service.description %></p></br>
-  <%= yield %>
+</div>
+<%= yield %>
+<div>
   <% if @service.photo.attached? %>
   <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
