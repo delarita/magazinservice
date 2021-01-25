@@ -1,0 +1,6 @@
+<%= simple_form_for(@service) do |f| %>
+  <%= f.input :name, label: "Nouveau Service" %>
+  <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 } %>
+  <%= f.input :photo, as: :file, label: "Ajoutez une photo" %>
+  <%= f.button :submit, "Enregistrer", class: "btn btn-dark" %>
+<% end %>
