@@ -1,4 +1,4 @@
 <% @services.each do |service|%>
   <%= link_to service.name, service_path(service.name) %>
-  <%= link_to "D", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
+  <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
 <% end %>

@@ -15,10 +15,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-
-      to_create_file = File.new("./app/views/shared/_#{@service.name}.html.erb", "w")
-      to_create_file.puts("write your stuff here")
-      to_create_file.close
+      create_file(@service.name)
       redirect_to services_path, notice: 'Le service a été enregistré.'
     else
       render :new, notice: 'Recommencer.'
@@ -27,14 +24,41 @@ class ServicesController < ApplicationController
 
   def destroy
     @service = Service.find(params[:id])
-
     @service.destroy
-    to_delete_file = "./app/views/shared/_#{@service.name}.html.erb"
-    File.delete(to_delete_file) if File.exist?(to_delete_file)
+
+    delete_file(@service.name)
+
     redirect_to services_path
   end
 
   private
+
+  def create_file(file)
+
+    # A METTRE AILLEUR !!
+      insert = %{<h3><%= @service.name -%></h3>
+<div>
+  <p>Des choses sur #{file}</p>
+  <p><%= @service.description %></p></br>
+  <%= yield %>
+  <% if @service.photo.attached? %>
+  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <p>Des chose sous #{file}</p>
+</div>
+}
+    # ########
+
+      to_create_file = File.new("./app/views/shared/_#{file}.html.erb", "w")
+      to_create_file.puts(insert)
+      to_create_file.close
+  end
+
+  def delete_file(file)
+    to_delete_file = "./app/views/shared/_#{file}.html.erb"
+    File.delete(to_delete_file) if File.exist?(to_delete_file)
+  end
+
   def service_params
     params.require(:service).permit(:name, :description, :photo)
   end
