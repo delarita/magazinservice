@@ -1,3 +1,6 @@
 <% @services.each do |service|%>
   <%= link_to service.name, service_path(service.name) %>
+  <% if !current_user.nil? && current_user.admin %>
+  <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
+  <% end %>
 <% end %>

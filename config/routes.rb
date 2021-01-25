@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/services', to: 'pages#home', as: :service_page
 
   get ':name', to: 'services#show', as: :service
+  delete ':id', to: 'services#destroy'
   resources :services
 end
