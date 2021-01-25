@@ -16,13 +16,22 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     if @service.save
 
-      out_file = File.new("./app/views/shared/_#{@service.name}.html.erb", "w")
-      out_file.puts("write your stuff here")
-      out_file.close
+      to_create_file = File.new("./app/views/shared/_#{@service.name}.html.erb", "w")
+      to_create_file.puts("write your stuff here")
+      to_create_file.close
       redirect_to services_path, notice: 'Le service a été enregistré.'
     else
       render :new, notice: 'Recommencer.'
     end
+  end
+
+  def destroy
+    @service = Service.find(params[:id])
+
+    @service.destroy
+    to_delete_file = "./app/views/shared/_#{@service.name}.html.erb"
+    File.delete(to_delete_file) if File.exist?(to_delete_file)
+    redirect_to services_path
   end
 
   private
