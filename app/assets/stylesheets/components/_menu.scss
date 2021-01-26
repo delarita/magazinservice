@@ -1,0 +1,25 @@
+.navmenu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    font-family: Montserrat;
+    
+
+    li {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    // border-left: 1px solid #ac814a;
+    
+     border-right: 1px solid #ac814a;
+
+}
+
+a {
+    color: #ac814a;
+    text-decoration: none;
+    // padding: 10px;
+}
+}

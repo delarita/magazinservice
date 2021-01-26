@@ -1,6 +1,11 @@
-<% @services.each do |service|%>
-  <%= link_to service.name, service_path(service.name) %>
-  <% if !current_user.nil? && policy(Service).destroy? %>
-  <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
-  <% end %>
-<% end %>
+
+<div class="container">
+  <nav class="navmenu">
+    <% @services.each do |service|%>
+      <li><%= link_to service.name, service_path(service.name) %></li>
+      <% if !current_user.nil? && policy(Service).destroy? %>
+      <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
