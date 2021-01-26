@@ -1,0 +1,12 @@
+<h3><%= @service.name -%></h3>
+<div>
+  <p>Des choses sur test</p>
+  <p><%= @service.description %></p></br>
+</div>
+<%= yield %>
+<div>
+  <% if @service.photo.attached? %>
+  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <p>Des chose sous test</p>
+</div>

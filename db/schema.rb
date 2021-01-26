@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_101538) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.index ["name"], name: "index_services_on_name", unique: true
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 

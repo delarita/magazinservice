@@ -1,7 +1,6 @@
 class ServicePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      raise
       scope.all
     end
   end
