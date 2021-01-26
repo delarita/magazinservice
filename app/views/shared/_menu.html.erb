@@ -1,0 +1,16 @@
+<%# <div class="container"> %>
+<div class = "header">
+    <div class = "logorelook">
+    </div>
+    <nav class="navmenu">
+        <li>ACCUEIL</li> 
+        <li>A PROPOS</li>
+        <% @services.each do |service|%>
+        <li><%= link_to service.name, service_path(service.name) %></li>
+        <% if !current_user.nil? && policy(Service).destroy? %>
+        <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+<%# </div> %>

@@ -1,11 +1,71 @@
 
-<div class="container">
-  <nav class="navmenu">
-    <% @services.each do |service|%>
-      <li><%= link_to service.name, service_path(service.name) %></li>
-      <% if !current_user.nil? && policy(Service).destroy? %>
-      <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %>
-      <% end %>
-    <% end %>
-  </div>
+
+<%= render 'shared/menu' %>
+
+<div class="mainpage">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="https://res.cloudinary.com/dsmxleyf5/image/upload/v1611678394/iqftyuos4warptyvswcr.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Third slide">
+        </div>
+      </div>
+    </div>
 </div>
+
+
+<div class = "bloc">
+    <img class = "d-block w-100" src ="https://images.unsplash.com/photo-1487412912498-0447578fcca8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" alt="soinvisage">
+      
+    
+    <div class="text">
+      <h2 class = "text-center">MAQUILLAGE PERMANENT</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nulla quaerat delectus, dolorum nam magnam in maxime amet assumenda corrupti obcaecati enim accusantium consequuntur. Quam explicabo asperiores consequatur natus numquam!</p>
+    </div>
+</div>
+
+<div class = "bloc">
+    <div class="text">
+      <h2 class = "text-center">MASSAGE</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nulla quaerat delectus, dolorum nam magnam in maxime amet assumenda corrupti obcaecati enim accusantium consequuntur. Quam explicabo asperiores consequatur natus numquam!</p>
+
+    </div>
+    <img class = "d-block w-100" src ="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="soinvisage">
+    
+</div>
+
+<div class = "bloc">
+    <img class = "d-block w-100" src ="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="soinvisage">
+    <div class="text">
+      <h2 class = "text-center">SOINS DU VISAGE</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nulla quaerat delectus, dolorum nam magnam in maxime amet assumenda corrupti obcaecati enim accusantium consequuntur. Quam explicabo asperiores consequatur natus numquam!</p>
+
+    </div>
+</div>
+
+<div class = "bloc">
+     <div class="text">
+        <h2 class = "text-center">EPILATION</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nulla quaerat delectus, dolorum nam magnam in maxime amet assumenda corrupti obcaecati enim accusantium consequuntur. Quam explicabo asperiores consequatur natus numquam!</p>
+
+     </div>
+    <img class = "d-block w-100" src ="https://images.unsplash.com/photo-1529982412356-901cc3a363cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="soinvisage">
+</div>
+<%# <div class="container">
+  <nav class="navmenu">
+  <li>ACCUEIL</li> 
+  <li>A PROPOS</li>
+    <% @services.each do |service|%>
+      <%# <li><%= link_to service.name, service_path(service.name) %>
+      <%# </li> %>
+      <%# <% if !current_user.nil? && policy(Service).destroy? %> 
+      <%# <%= link_to "x", service_path(service), method: :delete, data: { confirm: "confirmer ?" } %> 
+      <%# <% end %> 
+    <%# <% end %>
+  <%# </div> %>
+<%# </div> %> 

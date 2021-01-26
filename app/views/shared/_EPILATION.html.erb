@@ -1,6 +1,6 @@
 <h3><%= @service.name -%></h3>
 <div>
-  <p>Des choses sur POUET</p>
+  <p>Des choses sur EPILATION</p>
   <p><%= @service.description %></p></br>
 </div>
 <%= yield %>
@@ -8,5 +8,5 @@
   <% if @service.photo.attached? %>
   <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
-  <p>Des chose sous POUET</p>
+  <p>Des chose sous EPILATION</p>
 </div>
